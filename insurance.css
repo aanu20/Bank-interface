@@ -1,0 +1,83 @@
+body{
+    background-color: #21abb5;
+}
+.headsection{width:1500px;
+    border-radius: 10px;
+    display:inline-block;
+    color:black;
+    background-color: white;
+}
+.login{width:1500px;
+    border-radius: 10px;
+    background-color: #167379;
+    ;
+}
+h4{
+    position: relative;
+    left:85%;
+    color:white;
+    cursor: pointer;
+    display:inline-block;
+}
+h4:hover{
+    color:pink;
+}
+.header{
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size:30px;
+    color:khaki;
+    display:inline-block;
+    margin-left:60px;
+}
+.list{
+    color:black;
+    padding:3px;
+    display: flex;
+    justify-content: space-between;
+}
+li{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size:large;
+    display:inline-block;
+    cursor: pointer;
+}
+li:hover{
+    color:pink;
+    text-decoration: underline;
+}
+.img{
+    margin-left:80%;
+    margin-top:20px;
+    border-radius:6px;
+}
+.content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 20px auto;
+    max-width: 90%;
+}
+.box1, .box2, .box3,.box4,.box5,.box6 {
+    flex: 1 1 calc(33.33% - 40px); /* Make boxes responsive, take 1/3rd of the width */
+    margin: 20px;
+    padding: 30px;
+    border-radius: 8px;
+    border: 2px groove darkred;
+    background-color: aliceblue;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #45a049;
+}

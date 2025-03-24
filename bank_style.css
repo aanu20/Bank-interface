@@ -1,0 +1,113 @@
+body{
+    background-color: #123347;
+}
+.headsection{width:1500px;
+    border-radius: 10px;
+    display:inline-block;
+    color:black;
+    background-color: white;
+}
+.login{width:1500px;
+    border-radius: 10px;
+    background-color: #123347;
+}
+h4{
+    position: relative;
+    left:85%;
+    color:white;
+    cursor: pointer;
+    display:inline-block;
+}
+h4:hover{
+    color:pink;
+}
+.header{
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size:30px;
+    color:khaki;
+    display:inline-block;
+    margin-left:60px;
+}
+.list{
+    color:black;
+    padding:3px;
+    display: flex;
+    justify-content: space-between;
+}
+li{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size:large;
+    display:inline-block;
+    cursor: pointer;
+}
+li:hover{
+    color:pink;
+    text-decoration: underline;
+}
+
+.balance{
+    
+    background-color:honeydew;
+    position: static;
+    text-align: center;
+}
+#account,#phone{
+    text-align: center;
+    position: absolute;
+    left:43%;
+    top:200px;
+    width:250px;
+    height:35px;
+    border-radius:10px;
+    background-color:snow;
+}
+#phone{
+    top:250px;
+}
+#button_balance{
+    text-align: center;
+    position: absolute;
+    left:46%;
+    width:180px;
+    height:35px;
+    border-radius:10px;
+    background-color:snow;
+    top:320px;
+}
+
+.depositButtonhtml,.depoistAmountEnter,.depoistAmount{
+    position: absolute;
+    text-align:center;
+    top: 380px;
+    left:49.5%;
+    border-radius:10px;
+    background-color:snow;
+    color:black;
+}
+
+.section1{
+    position: absolute;
+    top:150px;
+    left:1%;
+    color: black;
+    background-color: white;
+    width:280px;
+}
+.sectionList1{
+    padding:50px;
+    background-color: white;
+    border-radius: 10px;
+    border-color: black;
+    border-width: 10px;
+    border-style:solid;
+    height:400px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap:50px;
+}
+
+.sectionList1 li {
+    border-bottom: 1px solid black; /* Adds a line between items */
+    max-width:  500px;
+}
