@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import styles from './LoginPage.css';
+
 
 function LoginPage() {
   const navigate = useNavigate();
@@ -51,20 +53,20 @@ function LoginPage() {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen ">
-  <div className="bg-white rounded-xl shadow-xl p-10 w-96 text-center">
+    <div className={styles.container}>
+  <div className={styles.card}>
     <form onSubmit={handleSubmit}>
-      <h1 className="text-3xl font-extrabold font-mono text-blue-600 mb-2">VaultHub</h1>
-      <h3 className="text-xl font-semibold mb-6 text-gray-700">Login</h3>
+      <h1 className={styles.heading}>VaultHub</h1>
+      <h3 className={styles.subheading}>Login</h3>
       <input
-        className="w-full mb-4 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+        className={styles.inputField}
         type="text"
         placeholder="Username or email"
         value={username}
         onChange={(e) => setUsername(e.target.value)}
       />
       <input
-        className="w-full mb-4 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+        className={styles.inputField}
         type="password"
         placeholder="Password"
         value={password}
@@ -73,16 +75,15 @@ function LoginPage() {
       <button
         onClick={logined}
         type="submit"
-        className="w-full bg-blue-600 text-white py-2 rounded-md hover:cursor-pointer hover:bg-blue-700 transition"
+        className={styles.loginButton}
       >
         Login
       </button>
     </form>
-    <p onClick={forgotpassword} className="text-sm mt-4 text-blue-600 hover:underline cursor-pointer">Forgot password?</p>
-    <p onClick={create} className="text-sm mt-2 text-blue-600 hover:underline cursor-pointer">Create account</p>
+    <p onClick={forgotpassword} className={styles.linkText}>Forgot password?</p>
+    <p onClick={create} className={styles.smallLink}>Create account</p>
   </div>
 </div>
-
   );
 }
 
