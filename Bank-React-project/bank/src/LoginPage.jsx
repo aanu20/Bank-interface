@@ -6,6 +6,9 @@ function LoginPage() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
+  const logined=()=>{
+    navigate('/')
+  }
   // Define the 'create' function outside handleSubmit
   const create = () => {
     navigate("/create-account");
@@ -68,7 +71,7 @@ function LoginPage() {
         onChange={(e) => setPassword(e.target.value)}
       />
       <button
-        
+        onClick={logined}
         type="submit"
         className="w-full bg-blue-600 text-white py-2 rounded-md hover:cursor-pointer hover:bg-blue-700 transition"
       >

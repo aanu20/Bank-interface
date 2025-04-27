@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './Home';
 import LoginPage from './LoginPage';  // <-- Import LoginPage
+import CreateAccount from './CreateAccount';
 function App() {
 
   return (
@@ -12,6 +13,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<LoginPage />} /> {/* <-- Corrected */}
+          <Route path="/create-account" element={ <CreateAccount/>}/>
         </Routes>
         </BrowserRouter>
       </div>
