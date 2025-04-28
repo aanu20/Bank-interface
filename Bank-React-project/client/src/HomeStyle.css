@@ -1,0 +1,18 @@
+@import "tailwindcss";
+.topbar{
+    @apply w-full flex justify-end p-0.5;
+}
+.topbar_loginbutton{
+    @apply bg-white p-2 rounded-md shadow hover:bg-gray-300 hover:cursor-pointer transition;
+}
+
+.topbar_createbutton{
+    @apply bg-white p-2 rounded-md shadow hover:bg-gray-300 hover:cursor-pointer transition;
+}
+.money_transfers_icon{
+    @apply w-20 rounded-xl;
+}
+.container{
+    @apply bg-gradient-to-br from-gray-700 to-black w-800 shadow-md bg-black rounded-lg ml-10 text-white p-10;
+}
+
