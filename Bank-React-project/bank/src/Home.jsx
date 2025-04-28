@@ -1,5 +1,6 @@
-import "./HomeStyle.css"
+
 import { useNavigate } from "react-router-dom";
+import './HomeStyle.css'
 function Home(){
     const navigate = useNavigate();
     const Login=()=>{
@@ -39,9 +40,9 @@ function Home(){
             <img className="w-20 rounded-xl" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDON5kA9mUfIPaBhq2o8mu6jSt8-JUIiUn7w&s"></img>
           </div>
           <div className="flex justify-around">
-              <p>To mobile number</p>
-              <p>To account</p>
-              <p>Check balance</p>
+              <h5>To mobile number</h5>
+              <h5>To account</h5>
+              <h5>Check balance</h5>
           </div>
       </div>
     </div>
