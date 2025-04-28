@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-
-
 function LoginPage() {
   const navigate = useNavigate();
   const [username, setUsername] = useState("");
@@ -28,7 +26,7 @@ function LoginPage() {
     };
 
     try {
-      const response = await fetch("http://127.0.0.1:5000/signup", {
+      const response = await fetch("http://127.0.0.1:5000/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -36,17 +34,8 @@ function LoginPage() {
         body: JSON.stringify(userData),
       });
 
-      if (response.ok) {
-        const data = await response.json();
-        localStorage.setItem("username", username); // Store the username in localStorage
-        alert("Signup successful!");
-        navigate("/SignUpQuestionPage"); // Navigate to the question page
-      } else if (response.status === 409) {
-        const errorData = await response.json();
-        alert(errorData.message); // Display the error message to the user
-      } else {
-        console.error("Signup failed with status:", response.status);
-      }
+      const data = await response.json();  // 👈 Receive response from Flask
+      console.log(data);
     } catch (error) {
       console.error("There was an error submitting the form", error);
     }

@@ -8,7 +8,7 @@ function CreateAccount() {
 
   const created=()=>{
     navigate("/login")
-}
+  }
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -18,25 +18,15 @@ function CreateAccount() {
     };
     
     try {
-      const response = await fetch("http://127.0.0.1:5000/signup", {
+      const response = await fetch("http://127.0.0.1:5000/create", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(userData),
       });
-
-      if (response.ok) {
-        const data = await response.json();
-        localStorage.setItem("username", username);
-        alert("Signup successful!");
-        navigate("/SignUpQuestionPage");
-      } else if (response.status === 409) {
-        const errorData = await response.json();
-        alert(errorData.message);
-      } else {
-        console.error("Signup failed with status:", response.status);
-      }
+      const data=await response.json();
+      console.log(data)
     } catch (error) {
       console.error("There was an error submitting the form", error);
     }

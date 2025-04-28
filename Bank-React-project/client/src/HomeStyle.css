@@ -1,18 +1,26 @@
 @import "tailwindcss";
+body{
+    @apply bg-gradient-to-br from-black to-gray-400;
+}
+@layer components{
 .topbar{
     @apply w-full flex justify-end p-0.5;
 }
-.topbar_loginbutton{
+.topbar_button{
     @apply bg-white p-2 rounded-md shadow hover:bg-gray-300 hover:cursor-pointer transition;
 }
 
-.topbar_createbutton{
-    @apply bg-white p-2 rounded-md shadow hover:bg-gray-300 hover:cursor-pointer transition;
-}
+
 .money_transfers_icon{
     @apply w-20 rounded-xl;
 }
 .container{
     @apply bg-gradient-to-br from-gray-700 to-black w-800 shadow-md bg-black rounded-lg ml-10 text-white p-10;
 }
-
+.card{
+    @apply border-2 border-white bg-gradient-to-br from-gray-700 to-gray-900 w-60 shadow-md bg-black rounded-lg mt-10 text-white p-3;
+}
+.card_subtitle{
+    @apply text-xs bg-gradient-to-br from-white to-gray-400 bg-clip-text text-transparent
+}
+}
