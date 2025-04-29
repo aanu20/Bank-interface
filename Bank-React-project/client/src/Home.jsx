@@ -12,6 +12,9 @@ function Home(){
     const Login=()=>{
         navigate("/login")
     }
+    const to_mobile=()=>{
+      navigate("/send-money")
+    }
     const create=()=>{
         navigate("/create-account")
     }
@@ -44,7 +47,7 @@ function Home(){
       <div className="bg-gradient-to-br from-gray-700 to-black w-500 shadow-md bg-black rounded-lg mt-100 ml-3 text-white p-10" data-aos="fade-up">
           <h2 className="mb-5">Money Transfers</h2>
           <div className="flex justify-around" data-aos="flip-right">
-            <img className="money_transfers_icon"  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6T0uvpjTxzbPd69HNzFLH_4FLKYc2uJi7Tw&s"></img>
+            <img onClick={to_mobile} className="money_transfers_icon"  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6T0uvpjTxzbPd69HNzFLH_4FLKYc2uJi7Tw&s"></img>
             <img className="money_transfers_icon"  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfBXTJV66dpAhEDNE3Fbmnzpuj_6ItCwE1zA&s"></img>
             <img className="money_transfers_icon"  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDON5kA9mUfIPaBhq2o8mu6jSt8-JUIiUn7w&s"></img>
           </div>

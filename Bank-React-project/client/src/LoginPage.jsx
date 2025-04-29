@@ -34,6 +34,18 @@ function LoginPage() {
         body: JSON.stringify(userData),
       });
 
+      if (response.ok) {
+        const data = await response.json();
+        localStorage.setItem("username", username); // Store the username in localStorage
+        alert("Login successful!");
+        navigate("/"); // Navigate to the question page
+      } else if (response.status === 409) {
+        const errorData = await response.json();
+        alert(errorData.message); // Display the error message to the user
+      } else {
+        console.error("Signup failed with status:", response.status);
+      }
+
       const data = await response.json();  // 👈 Receive response from Flask
       console.log(data);
     } catch (error) {

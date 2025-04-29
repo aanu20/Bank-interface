@@ -3,6 +3,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './Home';
 import LoginPage from './LoginPage';  // <-- Import LoginPage
 import CreateAccount from './CreateAccount';
+import SendMoney from './SendMoney';
+import TranscationHistory from './TranscationHistory';
 function App() {
 
   return (
@@ -14,6 +16,8 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<LoginPage />} /> {/* <-- Corrected */}
           <Route path="/create-account" element={ <CreateAccount/>}/>
+          <Route path='/send-money' element={<SendMoney/>} />
+          <Route path='/Sendhistory' element={< TranscationHistory/>} />
         </Routes>
         </BrowserRouter>
       </div>

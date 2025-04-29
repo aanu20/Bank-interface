@@ -23,4 +23,22 @@ body{
 .card_subtitle{
     @apply text-xs bg-gradient-to-br from-white to-gray-400 bg-clip-text text-transparent
 }
+.sendcard{
+    @apply text-gray-100 mt-10 ml-5 text-center text-xl font-bold w-20 h-20 shadow-lg flex items-center justify-center rounded-full border-2 border-gray-400 hover:cursor-pointer;
+}
+.sendcard_view{
+    @apply text-gray-100 mt-10 ml-5 text-center text-xl font-bold w-10 h-10 shadow-lg flex items-center justify-center rounded-full border-2 border-gray-400 hover:cursor-pointer;
+}
+.sendcard_view_You{
+    @apply text-gray-100 mt-3 ml-5 text-center text-xs w-10 h-10 shadow-lg flex items-center justify-center rounded-full border-2 border-gray-400 hover:cursor-pointer;
+}
+.div_side_sent{
+    @apply flex flex-col justify-center ml-10 mt-10 space-y-2;
+}
+.send_you{
+    @apply border-2 border-gray-600 shadow pr-5 pl-3 pt-5 pb-2 bg-gradient-to-br from-violet-700 to-pink-900 rounded-md;
+}
+.send_others{
+    @apply border-2 border-gray-600 shadow pr-5 pl-3 pt-5 pb-2 bg-gradient-to-br from-pink-700 to-gray-700 rounded-md;
+}
 }
