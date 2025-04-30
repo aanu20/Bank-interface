@@ -1,4 +1,4 @@
-import SendMoney from "./SendMoney";
+import TransactionLayout from "./TransactionLayout";
 import { useState ,useEffect} from "react";
 import "./HomeStyle.css"
 import bank from './Bank.png'
@@ -6,21 +6,24 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 function TranscationReceipt(){
     const [messages, setMessages] = useState([]);
-    useEffect(()=>{
-        AOS.init({duration:1200})
-    })
-
-    //get data from flask
-    fetch("http://localhost:5000/moneydata/last")
-    .then((res) => res.json())
-    .then((data) => {
-        setMessages([...messages, data]);
-        console.log("Last entry:", data);
-    });
+    useEffect(() => {
+        AOS.init({ duration: 1200 });
+    
+        fetch("http://localhost:5000/moneydata/last")
+            .then((res) => res.json())
+            .then((data) => {
+                setMessages(data);  // or [...messages, data] if appending
+                console.log("Last entry of rec:", data);
+            })
+            .catch((err) => {
+                console.error("Error fetching last money data:", err);
+            });
+    }, []); // <-- Important: empty dependency array to run only once
+    
 
     return<>
     <div className="flex flex-row">
-        <SendMoney />
+        <TransactionLayout />
         <div className="w-[580px] p-20 text-white ml-30 mt-20 bg-gradient-to-br from-black to-violet-700 h-1/2" data-aos="zoom-in">
             <h3 className="font-bold">Paid to</h3>
             <div className='flex flex-row'>
@@ -32,9 +35,7 @@ function TranscationReceipt(){
                     <p className="font-bold text-xl">James</p>
                     <p className="text-gray-300 text-xs">+919064587321</p>
                 </div>
-                {messages.filter((_, index) => index === 1).map((msg, index) => (
-                    <p className="ml-50 mt-11 font-bold" key={index}>${msg}</p>
-                ))}
+                <p className="ml-50 mt-11 font-bold">${messages}</p>
                 
             </div>
             <div className='w-[500px] py-5 text-gray-600 rounded-xl  px-10 font-mons font-bold text-xs'>
@@ -56,9 +57,7 @@ function TranscationReceipt(){
                         <p> XXXXXXX7895</p>
                         <p className="id">UTR : 1546423187966</p>
                     </div>
-                    {messages.filter((_, index) => index === 1).map((msg, index) => (
-                    <p className="ml-50 mt-6 font-bold" key={index}>${msg}</p>
-                    ))}
+                    <p className="ml-50 mt-11 font-bold">${messages}</p>
                 </div>
                 <hr className="w-[400px] mt-5"></hr>
             </div>
