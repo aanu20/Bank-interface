@@ -5,6 +5,7 @@ import LoginPage from './LoginPage';  // <-- Import LoginPage
 import CreateAccount from './CreateAccount';
 import SendMoney from './SendMoney';
 import TranscationHistory from './TranscationHistory';
+import TranscationReceipt from './TranscationReceipt';
 function App() {
 
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/create-account" element={ <CreateAccount/>}/>
           <Route path='/send-money' element={<SendMoney/>} />
           <Route path='/Sendhistory' element={< TranscationHistory/>} />
+          <Route path='transcation-success' element={<TranscationReceipt/>}/>
         </Routes>
         </BrowserRouter>
       </div>
