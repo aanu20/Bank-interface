@@ -19,12 +19,12 @@ function LoginPage() {
   };
   const handleSubmit = async (event) => {
     event.preventDefault();
-
+  
     const userData = {
       username: username,
       password: password,
     };
-
+  
     try {
       const response = await fetch("http://127.0.0.1:5000/login", {
         method: "POST",
@@ -33,25 +33,27 @@ function LoginPage() {
         },
         body: JSON.stringify(userData),
       });
-
+  
+      // Read response JSON only once
+      const data = await response.json();
+  
       if (response.ok) {
-        const data = await response.json();
         localStorage.setItem("username", username); // Store the username in localStorage
         alert("Login successful!");
-        navigate("/"); // Navigate to the question page
+        navigate("/"); // Navigate to the home page
       } else if (response.status === 409) {
-        const errorData = await response.json();
-        alert(errorData.message); // Display the error message to the user
+        alert(data.message); // Display the error message from the response
       } else {
-        console.error("Signup failed with status:", response.status);
+        console.error("Login failed with status:", response.status);
+        alert("Login failed: " + data.message); // Show generic failure message
       }
-
-      const data = await response.json();  // 👈 Receive response from Flask
+  
       console.log(data);
     } catch (error) {
       console.error("There was an error submitting the form", error);
     }
   };
+  
 
   return (
     <div className="flex justify-center items-center min-h-screen ">

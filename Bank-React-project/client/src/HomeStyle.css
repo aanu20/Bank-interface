@@ -44,4 +44,22 @@ body{
 .id{
     @apply text-xs text-gray-400;
 }
+.image{
+    @apply w-15 h-15 rounded-full mb-6;
+}
+.account_card{
+    @apply transition-transform duration-300 hover:-translate-y-2 hover:shadow-lg hover:scale-105 mb-5 flex flex-row bg-gradient-to-br from-black to-green-600 pt-2  ml-10 pl-30 hover:cursor-pointer;
+}
+.account_card1{
+    @apply w-2/3 transition-transform duration-300 hover:-translate-y-2 hover:shadow-lg hover:scale-105  flex flex-row bg-gradient-to-br from-black to-gray-400 pt-2 rounded-xl  ml-10 pl-30 hover:cursor-pointer;
+}
+.account_card2{
+    @apply w-[800px]  hover:shadow-lg  flex flex-row bg-gradient-to-br from-black to-gray-400 pt-2 rounded-xl mt-10 ml-10 pl-2;
+}
+.image_style{
+    @apply mr-5 ml-15  w-[60px] h-[60px] rounded-md hover:cursor-pointer hover:-translate-y-1 hover:shadow-lg hover:scale-105;
+}
+.image_div{
+    @apply flex flex-col items-center ;
+}
 }

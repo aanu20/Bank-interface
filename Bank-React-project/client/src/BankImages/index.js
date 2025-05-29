@@ -1,0 +1,12 @@
+export { default as canara } from "./canara.png";
+export {default as axis} from "./axis.png";
+export {default as HDFC} from "./HDFC.png";
+export {default as indian} from "./indian.png";
+export {default as IOS} from "./IOS.png";
+export {default as KMB} from "./KMB.png";
+export {default as KVB} from "./KVB.jpg";
+export {default as maha} from "./maha.png";
+export {default as SBI} from "./SBI.jpg";
+export {default as UBI} from "./UBI.png";
+export {default as pandyan} from "./pandyan.png";
+export {default as Baroda} from "./Baroda.png";

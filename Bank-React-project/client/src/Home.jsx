@@ -15,6 +15,9 @@ function Home(){
     const to_mobile=()=>{
       navigate("/send-money")
     }
+    const to_account=()=>{
+      navigate('/to-account')
+    }
     const create=()=>{
         navigate("/create-account")
     }
@@ -48,7 +51,7 @@ function Home(){
           <h2 className="mb-5">Money Transfers</h2>
           <div className="flex justify-around" data-aos="flip-right">
             <img onClick={to_mobile} className="money_transfers_icon"  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6T0uvpjTxzbPd69HNzFLH_4FLKYc2uJi7Tw&s"></img>
-            <img className="money_transfers_icon"  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfBXTJV66dpAhEDNE3Fbmnzpuj_6ItCwE1zA&s"></img>
+            <img onClick={to_account} className="money_transfers_icon"  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfBXTJV66dpAhEDNE3Fbmnzpuj_6ItCwE1zA&s"></img>
             <img className="money_transfers_icon"  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDON5kA9mUfIPaBhq2o8mu6jSt8-JUIiUn7w&s"></img>
           </div>
           <div className="flex justify-around">
