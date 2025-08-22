@@ -10,6 +10,7 @@ import TransferToAccount from './TransferToAccount';
 import DepoistSelf from './DepoistSelf';
 import AddAccount from './AddAccount';
 import QRScanner from './QrScan';
+import EnterPin from './EnterPin';
 function App() {
 
   return (
@@ -28,6 +29,7 @@ function App() {
           <Route path='/depoist' element={< DepoistSelf/>} />
           <Route  path='/depoist/select' element={<AddAccount />}/>
           <Route path ='/QR-scan' element={<QRScanner/>}/>
+          <Route path='/enter-pin' element={<EnterPin/>}/>
         </Routes>
         </BrowserRouter>
       </div>
