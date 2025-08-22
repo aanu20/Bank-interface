@@ -11,6 +11,8 @@ import DepoistSelf from './DepoistSelf';
 import AddAccount from './AddAccount';
 import QRScanner from './QrScan';
 import EnterPin from './EnterPin';
+import PaymentEnterPin from './PayementEnterPin';
+import TransactionSuccess from './TransactionSuccess';
 function App() {
 
   return (
@@ -30,6 +32,8 @@ function App() {
           <Route  path='/depoist/select' element={<AddAccount />}/>
           <Route path ='/QR-scan' element={<QRScanner/>}/>
           <Route path='/enter-pin' element={<EnterPin/>}/>
+          <Route path='/make-payment' element={<PaymentEnterPin/>}/>
+          <Route path='/transaction-success-pin' element={< TransactionSuccess/>}/>
         </Routes>
         </BrowserRouter>
       </div>
