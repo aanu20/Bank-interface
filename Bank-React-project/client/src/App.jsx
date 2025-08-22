@@ -9,6 +9,7 @@ import TranscationReceipt from './TranscationReceipt';
 import TransferToAccount from './TransferToAccount';
 import DepoistSelf from './DepoistSelf';
 import AddAccount from './AddAccount';
+import QRScanner from './QrScan';
 function App() {
 
   return (
@@ -26,6 +27,7 @@ function App() {
           <Route path='/to-account' element={< TransferToAccount/>}/>
           <Route path='/depoist' element={< DepoistSelf/>} />
           <Route  path='/depoist/select' element={<AddAccount />}/>
+          <Route path ='/QR-scan' element={<QRScanner/>}/>
         </Routes>
         </BrowserRouter>
       </div>
