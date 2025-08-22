@@ -94,16 +94,15 @@ function Home(){
       </div>
     
     </div>
-    <div className="flex justify-start">
-      <div>
-        <img className="ml-10 rounded-md mt-10" src={cash}>
-        </img>
-      </div>
-      <div className="mt-20 ml-150 bg-gradient-to-br from-gray-600 to-black rounded-md w-1/2">
-        <h3 className="text-white ml-20 mt-10">Manage Payments</h3>
-        <div>
-          <p>hi</p>
-        </div>
+    
+    <div>
+      <span className="flex items-center justify-center mt-10 text-white text-xl">
+        About us
+      </span>
+      <div className="p-10 text-white">
+        <p>
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        </p>
       </div>
     </div>
     </>
