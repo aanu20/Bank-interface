@@ -1,45 +1,53 @@
 import { useState, useRef, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { SHA256 } from "crypto-js";
+import { useNavigate, useLocation } from "react-router-dom";
 
-function PinInput() {
+function EnterPin() {
   const [pin, setPin] = useState(["", "", "", ""]);
   const inputsRef = useRef([]);
   const navigate = useNavigate();
+  const location = useLocation();
+  const { qrData } = location.state || {};
 
   const handleChange = (e, index) => {
-    const value = e.target.value.replace(/\D/g, ""); // only digits
+    const value = e.target.value.replace(/\D/g, "");
     if (!value) return;
 
     const newPin = [...pin];
-    newPin[index] = value[0]; // only take first digit
+    newPin[index] = value[0];
     setPin(newPin);
 
-    // move focus to next box
     if (index < 3) {
       inputsRef.current[index + 1].focus();
     }
   };
 
   const handleKeyDown = (e, index) => {
-    // move back on backspace
     if (e.key === "Backspace" && !pin[index] && index > 0) {
       inputsRef.current[index - 1].focus();
     }
   };
 
-  // ✅ Navigate when all 4 digits are entered
   useEffect(() => {
     if (pin.every((digit) => digit !== "")) {
       const fullPin = pin.join("");
-      console.log("Entered PIN:", fullPin);
-      // Navigate to payment page
-      navigate("/make-payment");
+      const enteredHash = SHA256(fullPin).toString();
+      const correctHash = SHA256("1234").toString();
+
+      if (enteredHash === correctHash) {
+        alert("✅ PIN Verified!");
+        navigate("/transaction-success-pin", { state: { qrData } }); // go to success page
+      } else {
+        alert("❌ Wrong PIN");
+        setPin(["", "", "", ""]);
+        inputsRef.current[0].focus();
+      }
     }
-  }, [pin, navigate]);
+  }, [pin, navigate, qrData]);
 
   return (
     <div className="bg-white p-6 rounded-lg shadow-md flex flex-col items-center">
-      <h1 className="text-xl font-bold mb-4 text-black">Enter your PIN</h1>
+      <h1 className="text-xl font-bold mb-4 text-black">Enter your UPI PIN</h1>
       <div className="flex space-x-4">
         {pin.map((digit, i) => (
           <input
@@ -58,4 +66,4 @@ function PinInput() {
   );
 }
 
-export default PinInput;
+export default EnterPin;

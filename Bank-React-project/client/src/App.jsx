@@ -13,6 +13,7 @@ import QRScanner from './QrScan';
 import EnterPin from './EnterPin';
 import PaymentEnterPin from './PayementEnterPin';
 import TransactionSuccess from './TransactionSuccess';
+import ConfirmPayment from './ConfirmPayment';
 function App() {
 
   return (
@@ -34,6 +35,7 @@ function App() {
           <Route path='/enter-pin' element={<EnterPin/>}/>
           <Route path='/make-payment' element={<PaymentEnterPin/>}/>
           <Route path='/transaction-success-pin' element={< TransactionSuccess/>}/>
+          <Route path='/confirm-payment' element={<ConfirmPayment/>}/>
         </Routes>
         </BrowserRouter>
       </div>

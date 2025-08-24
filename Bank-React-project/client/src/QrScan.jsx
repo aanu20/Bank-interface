@@ -61,11 +61,21 @@ function QRScanner() {
 
       // Parse QR data
       let paymentData;
-      try {
-        paymentData = JSON.parse(result);
-      } catch (e) {
-        paymentData = { raw: result };
+      if (result.startsWith("upi://pay")) {
+        const params = new URLSearchParams(result.split("?")[1]);
+        paymentData = {
+          vpa: params.get("pa"),
+          name: params.get("pn"),
+          amount: params.get("am"),
+          currency: params.get("cu"),
+          txnId: Date.now().toString()  // unique transaction ID (nonce)
+        };
+      } else {
+        // Not a valid UPI QR
+        alert("Invalid QR: Not a UPI payment QR");
+        return;
       }
+
 
       if (navigator.onLine) {
         // Online payment
@@ -88,7 +98,9 @@ function QRScanner() {
       }
 
       // Navigate to amount/PIN page
-      navigate("/enter-pin", { state: { qrData: paymentData } });
+      navigate("/confirm-payment", { state: { qrData: paymentData } });
+
+      //navigate("/enter-pin", { state: { qrData: paymentData } });
     };
 
     const error = (err) => console.warn("QR Scan Error:", err);
