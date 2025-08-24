@@ -56,52 +56,29 @@ function QRScanner() {
     });
 
     const success = async (result) => {
-      scanner.clear(); // stop scanning
-      setScanResult(result);
+    scanner.clear(); // stop scanning
+    setScanResult(result);
 
-      // Parse QR data
-      let paymentData;
-      if (result.startsWith("upi://pay")) {
-        const params = new URLSearchParams(result.split("?")[1]);
-        paymentData = {
-          vpa: params.get("pa"),
-          name: params.get("pn"),
-          amount: params.get("am"),
-          currency: params.get("cu"),
-          txnId: Date.now().toString()  // unique transaction ID (nonce)
-        };
-      } else {
-        // Not a valid UPI QR
-        alert("Invalid QR: Not a UPI payment QR");
-        return;
-      }
+    // Parse QR data
+    let paymentData;
+    if (result.startsWith("upi://pay")) {
+      const params = new URLSearchParams(result.split("?")[1]);
+      paymentData = {
+        vpa: params.get("pa"),
+        name: params.get("pn"),
+        amount: params.get("am"),
+        currency: params.get("cu"),
+        txnId: Date.now().toString() // unique transaction ID
+      };
+    } else {
+      alert("Invalid QR: Not a UPI payment QR");
+      return;
+    }
 
+    // Navigate to MakePayment page and pass QR data
+    navigate("/makepayment", { state: { qrData: paymentData } });
+  };
 
-      if (navigator.onLine) {
-        // Online payment
-        try {
-          const res = await fetch("http://localhost:5000/pay", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(paymentData),
-          });
-          const data = await res.json();
-          console.log("Payment success:", data);
-        } catch (err) {
-          console.warn("Online payment failed, queued offline:", err);
-          addToOfflineQueue(paymentData);
-        }
-      } else {
-        // Offline: queue payment
-        addToOfflineQueue(paymentData);
-        console.log("Offline: Payment queued");
-      }
-
-      // Navigate to amount/PIN page
-      navigate("/confirm-payment", { state: { qrData: paymentData } });
-
-      //navigate("/enter-pin", { state: { qrData: paymentData } });
-    };
 
     const error = (err) => console.warn("QR Scan Error:", err);
 

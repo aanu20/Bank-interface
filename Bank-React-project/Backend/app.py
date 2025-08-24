@@ -58,5 +58,19 @@ def get_phone():
             return jsonify({"message": "No phone number found"}), 404
     return jsonify({"message": "No data available"}), 404
 
+@app.route('/pay', methods=['POST'])
+def pay():
+    data = request.json
+    # Here you can process or validate the payment
+    # For simulation, we just return it
+    response = {
+        "vpa": data.get("vpa"),
+        "name": data.get("name"),
+        "amount": data.get("amount"),
+        "txnId": data.get("txnId"),
+        "status": "success"
+    }
+    return jsonify(response)
+
 if __name__ == "__main__":
     app.run(debug=True)
